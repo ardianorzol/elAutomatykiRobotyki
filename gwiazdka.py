@@ -70,7 +70,7 @@ def gwiazdka(start, stop, dane, koszt):
                 while j != otwarta.__len__():
                     if zmienna[0] == otwarta[j][0]:
                         if zmienna[2] < otwarta[j][2]:
-                            otwarta[j] == zmienna
+                            otwarta[j] = zmienna
                         k = 1
                     j = j + 1
                 if k != 1:
