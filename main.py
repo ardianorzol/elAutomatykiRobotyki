@@ -35,7 +35,6 @@ def dziecko(pozycja, dane, kolejnosc):
     for x in kolejnosc:
         odpx = pozycja[0] + x[0]
         odpy = pozycja[1] + x[1]
-
         if odpx < 0 or odpx > dane.shape[0] - 1 or odpy < 0 or odpy > dane.shape[1] - 1:
             continue
         if dane[odpx][odpy] == 5:
@@ -48,7 +47,6 @@ def gwiazdka(start, stop, dane, koszt):
     otwarta = []
     zamknieta = [[start, start, 0]]
     obecny = [start, koszt]
-
     while 1:
         dzieci=dziecko(obecny[0], dane, kol)
         wyniki = []
@@ -92,7 +90,6 @@ def gwiazdka(start, stop, dane, koszt):
         if otwarta.__len__() == 0:
             droga = []
             break
-
     return droga
 
 
@@ -110,3 +107,4 @@ else:
     dane[start[0]][start[1]] = 2
     dane[stop[0]][stop[1]] = 3
     print(dane)
+    
