@@ -103,16 +103,16 @@ def gwiazdka(start, stop, dane, koszt):
 
 
 kolejnosc = [gora(), dol(), lewo(), prawo()]
-start = (19, 0)
-stop = (0, 19)
+poczatek = (19, 0)
+koniec = (0, 19)
 koszt = 1
-dane = np.loadtxt("grid.txt")
-trasa = gwiazdka(start, stop, dane, koszt)
+grid = np.loadtxt("grid.txt")
+trasa = gwiazdka(poczatek, koniec, grid, koszt)
 if trasa.__len__() == 0:
     print("Nie znaleziono drogi")
 else:
     for x in trasa:
-        dane[x[0]][x[1]] = 1
-    dane[start[0]][start[1]] = 2
-    dane[stop[0]][stop[1]] = 3
-    print(dane)
+        grid[x[0]][x[1]] = 3
+    grid[poczatek[0]][poczatek[1]] = 1
+    grid[koniec[0]][koniec[1]] = 2
+    print(grid)
