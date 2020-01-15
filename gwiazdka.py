@@ -39,9 +39,9 @@ def dziecko(poz, dane, kol):
     for x in kol:
         odpx = poz[0] + x[0]
         odpy = poz[1] + x[1]
-        if odpx < 0 or odpx > dane.shape[0] - 1 or odpy < 0 or odpy > dane.shape[1] - 1:
+        if odpx < 0 or odpx > dane.__len__() - 1 or odpy < 0 or odpy > dane.__len__() - 1:
             continue
-        if dane[odpx][odpy] == 5:
+        if dane[odpx][odpy] != 0:
             continue
         odp.append((odpx, odpy))
     return odp
@@ -51,6 +51,10 @@ def gwiazdka(start, stop, dane, koszt):
     otwarta = []
     zamknieta = [[start, start, 0]]
     obecny = [start, koszt]
+    droga = []
+    ogranicznik = 0
+    # maksymalna liczba prób
+    maks = 1000
     while 1:
         dzieci = dziecko(obecny[0], dane, kolejnosc)
         wyniki = []
@@ -95,9 +99,10 @@ def gwiazdka(start, stop, dane, koszt):
                     if b[0] == droga[-1]:
                         droga.append(b[1])
             break
+        ogranicznik = ogranicznik + 1
+        if ogranicznik == maks:
+            break
         # droga pusta, jeśli nie znaleziono trasy
-    if otwarta.__len__() == 0:
-        droga = []
     return droga
 
 
