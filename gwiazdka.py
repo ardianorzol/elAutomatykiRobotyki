@@ -78,7 +78,7 @@ def gwiazdka(start, stop, dane, koszt):
         # obliczanie wartości pól
         for a in otwarta:
             wyniki.append(heu(a[0], stop)+a[2])
-        # dodawanie pól do listy zamkniętej
+        # dodawanie pół do listy zamkniętej
         i = wyniki.__len__()-1
         while i != -1:
             if wyniki[i] == min(wyniki):
@@ -96,9 +96,8 @@ def gwiazdka(start, stop, dane, koszt):
                         droga.append(b[1])
             break
         # droga pusta, jeśli nie znaleziono trasy
-        if otwarta.__len__() == 0:
-            droga = []
-            break
+    if otwarta.__len__() == 0:
+        droga = []
     return droga
 
 
